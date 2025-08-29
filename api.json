@@ -1,0 +1,80 @@
+{
+  "info": {
+    "_postman_id": "b4c7d9f1-5464-7979-1325-45787801110",
+    "name": "Wallet API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Wallet",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Idempotency-Key", "value": "<any-unique-key>" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ownerName\": \"Alice\",\n  \"currency\": \"USD\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/wallets", "host": ["{{baseUrl}}"], "path": ["wallets"] }
+      }
+    },
+    {
+      "name": "Get Wallet",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "{{baseUrl}}/wallets/<walletId>", "host": ["{{baseUrl}}"], "path": ["wallets","<walletId>"] }
+      }
+    },
+    {
+      "name": "Credit Wallet",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Idempotency-Key", "value": "<any-unique-key>" },
+          { "key": "If-Match", "value": "<etag-version>" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"credit\",\n  \"walletId\": \"<walletId>\",\n  \"amount\": 100,\n  \"reference\": \"Deposit\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/operations", "host": ["{{baseUrl}}"], "path": ["operations"] }
+      }
+    },
+    {
+      "name": "Debit Wallet",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Idempotency-Key", "value": "<any-unique-key>" },
+          { "key": "If-Match", "value": "<etag-version>" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"debit\",\n  \"walletId\": \"<walletId>\",\n  \"amount\": 50,\n  \"reference\": \"Purchase\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/operations", "host": ["{{baseUrl}}"], "path": ["operations"] }
+      }
+    },
+    {
+      "name": "Transfer Wallet",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Idempotency-Key", "value": "<any-unique-key>" },
+          { "key": "If-Match", "value": "<etag-version>" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"transfer\",\n  \"fromWalletId\": \"<walletId1>\",\n  \"toWalletId\": \"<walletId2>\",\n  \"amount\": 30,\n  \"reference\": \"Payment\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/operations", "host": ["{{baseUrl}}"], "path": ["operations"] }
+      }
+    }
+  ]
+}
