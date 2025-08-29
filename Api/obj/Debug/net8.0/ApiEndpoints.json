@@ -1,0 +1,68 @@
+[
+  {
+    "ContainingType": "Api.EndPoints.WalletEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapOperationEndpoints\u003Eb__1_0",
+    "RelativePath": "operations/",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "Api.Dtos.OperationRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Api.EndPoints.WalletEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapWalletEndpoints\u003Eb__0_0",
+    "RelativePath": "wallets/",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "Api.Dtos.WalletRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Api.EndPoints.WalletEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapWalletEndpoints\u003Eb__0_1",
+    "RelativePath": "wallets/{id:guid}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  }
+]
